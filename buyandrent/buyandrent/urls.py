@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from django.conf.urls import url
 
 urlpatterns = [
-    path('', include('pages.urls')),
+    # path('', include('pages.urls')),
 
     #Django admin
     path('admin/', admin.site.urls),
@@ -25,4 +26,7 @@ urlpatterns = [
     # User management
     path('users/', include('users.urls')),
     path('accounts/', include('allauth.urls')),
+
+    #Shop
+    url(r'^', include('shop.urls', namespace='shop')),
 ]

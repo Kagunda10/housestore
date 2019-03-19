@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Category, House
+from cart.forms import CartAddHouseForm
 # Create your views here.
 
 def house_list(request, category_slug=None):
@@ -20,6 +21,8 @@ def house_detail(request, id, slug):
                             id=id,
                             slug=slug,
                             available=True)
+    cart_house_form = CartAddHouseForm()
     return render(request,
                 'shop/house/detail.html',
-                {'house': house})
+                {'house': house,
+                'cart_house_form':cart_house_form})

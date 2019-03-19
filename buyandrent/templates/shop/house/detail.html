@@ -1,0 +1,22 @@
+{% extends "shop/base.html" %}
+{% load static %}
+
+{% block title %}
+  {% if category %}{{ category.title }}{% else %}Products{% endif %}
+{% endblock %}
+
+{% block content %}
+  <div class="product-detail">
+    <img src="{% if house.image %}{{ house.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+    <h1>{{ house.name }}</h1>
+    <h2><a href="{{ house.category.get_absolute_url }}">{{ house.category }}</a></h2>
+    <p class="price">${{ house.price }}</p>
+      {{ house.description|linebreaks }}
+  </div>
+  <p class="price">${{ house.price }}</p>
+  <form action="{% url "cart:cart_add" house.id %}" method="post">
+    {{ cart_house_form }}
+    {% csrf_token %}
+    <input type="submit" value="Add to cart">
+  </form>
+{% endblock %}

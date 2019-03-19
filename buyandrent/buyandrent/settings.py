@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'pages',
     'users',
     'shop',
+    'cart'
 ]
 
 AUTH_USER_MODEL = 'users.CustomUser'
@@ -74,6 +75,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'cart.context_processors.cart',
             ],
         },
     },
@@ -146,3 +148,6 @@ ACCOUNT_USERNAME_REQUIRED = False
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+#Sessions
+CART_SESSION_ID = 'cart'

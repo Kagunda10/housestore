@@ -152,3 +152,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 #Sessions
 CART_SESSION_ID = 'cart'
+
+# Mails to COnsolse (remove in production)
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

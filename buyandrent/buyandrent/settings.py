@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'pages',
     'users',
     'shop',
-    'cart'
+    'cart',
+    'orders',
 ]
 
 AUTH_USER_MODEL = 'users.CustomUser'
